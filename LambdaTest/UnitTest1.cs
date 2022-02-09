@@ -10,7 +10,7 @@ namespace LambdaTest
     {
         [TestMethod]
         [TestCategory("LambdaTest")]
-        public void GetTopTwoPersonReturnTrue()
+        public void GivenListReturnTrue()
         {
             List<Person> list = new List<Person>();
             list.Add(new Person() { Name = "Saurav", SSN = 1, Age = 20, Address = "Patna" });
@@ -29,7 +29,7 @@ namespace LambdaTest
         }
         [TestMethod]
         [TestCategory("LambdaTest")]
-        public void GetTopTwoPersonReturnNotFound()
+        public void GivenListReturnNotFound()
         {
             List<Person> list = new List<Person>();
             list.Add(new Person() { Name = "Saurav", SSN = 1, Age = 20, Address = "Patna" });
