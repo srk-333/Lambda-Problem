@@ -42,7 +42,6 @@ namespace LambdaProblem
             Console.WriteLine();
             Console.WriteLine("Get Top Two Person having Age less than 60");
             var TopTwoPerson = list.Where(p => p.Age < 60).OrderBy(p => p.Age).Take(2).ToList();
-            ShowPersonDetails(TopTwoPerson);
         }
         //Method to Get Person having Age Between 13 and 18 .
         public static void RetrivePersonByAge(List<Person> list)
@@ -87,15 +86,25 @@ namespace LambdaProblem
         //Override ToString Method.
         public override string ToString()
         {
-            return ($"Name={Name}\tSSN={SSN}\tAge={Age}\tAddress={Address}");
+            return ($"Name={Name},SSN={SSN},Age={Age},Address={Address}");
         }
         //Method to Remove a Person Details by Specific Name from the List.
-        public static void RemovePerson(List<Person> list, string name)
+        public static string RemovePerson(List<Person> list, string name)
         {
-            Console.WriteLine();
-            Console.WriteLine("Remove Person From list by another Way");
-            string PersonByName2 = list.Find(p => p.Name == name).ToString();
-            Console.WriteLine(PersonByName2);
+            try
+            {
+                Console.WriteLine();
+                Console.WriteLine("Remove Person From list by another Way");
+                string PersonByName2 = list.Find(p => p.Name == name).ToString();
+                if (PersonByName2.Contains("Saurav"))
+                    return "true";
+                else
+                    return "false";
+            }
+            catch (Exception )
+            {
+                throw new LambdaException(LambdaException.ExceptionType.Exception, "not found");
+            }
         }
     }  
 }
